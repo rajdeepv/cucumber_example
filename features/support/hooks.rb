@@ -1,1 +1,0 @@
-require 'parallel_cucumber/scenario_store_hook'

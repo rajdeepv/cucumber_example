@@ -1,10 +1,10 @@
 PATH
   remote: /Users/rajdeepvarma/projects/parallel_cucumber
   specs:
-    parallel_cucumber (0.2.5)
+    parallel_cucumber (0.2.16)
       cucumber (~> 2)
-      parallel (~> 1.9)
-      redis (~> 3.3)
+      parallel (~> 1.12)
+      redis (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -27,12 +27,13 @@ GEM
     method_source (0.8.2)
     multi_json (1.13.1)
     multi_test (0.1.2)
-    parallel (1.12.1)
+    parallel (1.17.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    redis (3.3.5)
+    rake (12.3.2)
+    redis (4.1.2)
     slop (3.6.0)
 
 PLATFORMS
@@ -42,6 +43,7 @@ DEPENDENCIES
   cucumber
   parallel_cucumber!
   pry
+  rake
 
 BUNDLED WITH
-   1.16.2
+   1.17.2

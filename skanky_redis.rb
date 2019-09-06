@@ -271,7 +271,7 @@ def with_redis(connection = nil)
     address = our_redis.start
     # e.g.     "redis://127.0.0.1:#{@port}"
     ENV['REDIS'] = address.split(',').first
-    connection = "--queue-connection-params #{address}"
+    connection = address
   end
   yield(connection)
 ensure
