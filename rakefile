@@ -1,7 +1,8 @@
 require_relative 'skanky_redis'
 task :parallel do
   with_redis do |redis_connection_string|
-    require 'pry'; binding.pry
-    system("bundle exec parallel_cucumber --queue-connection-param #{redis_connection_string} -n 10" )
+    FileUtils.rm_rf('worker_log')
+    FileUtils.mkdir_p 'worker_log'
+    system("bundle exec parallel_cucumber --queue-connection-param #{redis_connection_string} -n 10 --log-dir 'worker_log' -o '-p lol'")
   end
 end

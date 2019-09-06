@@ -1,21 +1,22 @@
 Feature: Rajdeep is well
 
   Scenario: A
-    Given Rajdeep is writing code
-    Then He is all fine
+    Given I am test "A"
+    And I sleep for "1" seconds
+
 
   Scenario: B
-    Given Rajdeep is writing code
-    Then He is all fine
+    Given I am test "B"
+    And I sleep for "2" seconds
 
   Scenario: C
-    Given Rajdeep is writing code
-    Then He is all fine
+    Given I am test "C"
+    And I sleep for "4" seconds
 
   Scenario: D
-    Given Rajdeep is writing code
-    Then He is all fine
+    Given I am test "D"
+    And I sleep for "6" seconds
 
   Scenario: E
-    Given Rajdeep is writing code
-    Then He is all fine
+    Given I am test "E"
+    And I sleep for "8" seconds

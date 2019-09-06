@@ -1,7 +1,7 @@
-Given(/^Rajdeep is writing code$/) do
-  puts "After so long"
+Given(/^I am test "([^"]*)"$/) do |test|
+  puts "Step from test #{test}"
 end
 
-Then(/^He is all fine$/) do
-  puts "All Great!"
+And(/^I sleep for "([^"]*)" seconds$/) do |time|
+  sleep time.to_i
 end
