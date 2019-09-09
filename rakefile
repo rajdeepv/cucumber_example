@@ -3,6 +3,11 @@ task :parallel do
   with_redis do |redis_connection_string|
     FileUtils.rm_rf('worker_log')
     FileUtils.mkdir_p 'worker_log'
-    system("bundle exec parallel_cucumber --queue-connection-param #{redis_connection_string} -n 10 --log-dir 'worker_log' -o '-p lol'")
+    system(%Q(bundle exec parallel_cucumber \
+--queue-connection-param #{redis_connection_string} -n 3 \
+--log-dir 'worker_log' -o'--format pretty' \
+-r after_batch.rb \
+--pre-batch-check 'ruby worker_precheck.rb' \
+--directed-tests '{"0":"-t @w0","1":"-t @w1","2":"-t @w2"}'))
   end
 end

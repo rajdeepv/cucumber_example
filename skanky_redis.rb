@@ -49,7 +49,6 @@ class SkankyRedis
     urls = %x(/sbin/ifconfig).each_line.map { |it| it.match(/inet (?:addr:)?(1[0|9]\S+)/) }.compact.map { |it| "http://#{it[1]}:#{@port}" } # rubocop:disable Lint/ShellLint
     server_info = "hacky redis server on #{@server_url} (#{urls}) log #{@flogf}"
     puts("Starting #{server_info}")
-    puts("You may also enjoy #{@server_url}/staging-log/")
     Thread.start do
       puts("Running #{server_info}")
       loop do

@@ -4,10 +4,9 @@ Feature: Rajdeep is well
     Given I am test "A"
     And I sleep for "1" seconds
 
-
   Scenario: B
     Given I am test "B"
-    And I sleep for "2" seconds
+    And I sleep for "1" seconds
 
   Scenario: C
     Given I am test "C"
