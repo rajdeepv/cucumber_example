@@ -1,16 +1,5 @@
 require 'socket'
 
-# Crappy REDIS for the Linux agents, to avoid having to install redis everywhere.
-# Would have been better had I realised the manual mode wasn't the standard.
-
-# ADD TO YOUR TC BUILD:
-#
-#        --queue-connection-params redis://localhost:6379,skanky
-#  -- or --
-#        --obfuscate --queue_connection=redis://localhost:6379,skanky
-#  == AND ==
-#        env.LC_ALL  en_US.UTF-8
-
 class SkankyRedis
   def initialize
     @db = {}
@@ -121,57 +110,16 @@ class SkankyRedis
   end
 
   def http_get(k)
-    if /(.\/)?staging-log\//.match?(k)
-      if File.directory?(k)
-        return [
-            OK_200, TEXT_HTML,
-            k,
-            Dir.entries(k).sort.map { |f| "<br><a href='/#{k}/#{f}'>#{f}</a> #{File.size("#{k}/#{f}")}\n" }
-        ].join
-      else
-        return [
-            OK_200, TEXT_PLAIN,
-            File.readlines(k).last(200)
-        ].join
-      end
-    end
     @db_mutex.synchronize do
       fetch = @db.fetch(k, [])
       [
-          OK_200, TEXT_PLAIN,
-          "Size = #{fetch.size}\n",
-          fetch.map.with_index { |x, i| "#{i} #{x.inspect}\n" }
+          OK_200, TEXT_HTML,
+          '<html><body style="color:green;font-size:40px;">',
+          "<p>Size: #{fetch.size}</p>\n<ol>",
+          fetch.map.with_index { |x, i| "<li> #{x.split("\r\n").last}\n" },
+          "</ol>\n</body></html>",
+          "\n",
       ].join
-    end
-  end
-
-  def http_collect(k, client, line)
-    # Web: env = { SKANKY_HP_SERVER: redis.sub(/^.*redis:\/\//, 'http://').sub(/,.*/, '/hotpanel') }
-    # Web: vs __hpid params['__hpurl'] = [skanky_hp_server, '/collect?test_run_id=', make_hotpanel_test_id].join
-    @db_mutex.synchronize do
-      fetch = (@db[k] ||= [])
-      now = Time.now
-      s = line + "\r\n"
-      begin
-        until (f = client.read_nonblock(8192)).empty?
-          s += f
-        end
-      rescue IO::WaitReadable
-        retry if Time.now - now < 3
-      rescue StandardError => e
-        s += e.inspect
-      end
-      json = s.split("\r\n\r\n", 2).last
-      fetch << "$#{json.length}\r\n#{json}"
-      [OK_200, TEXT_PLAIN, "Size = #{fetch.size}"].join
-    end
-  end
-
-  def http_json(k, _client, _line)
-    # hotpanel_event_search_server: "#{skanky_hp_server}/json#{query_test_run_id}"
-    @db_mutex.synchronize do
-      fetch = (@db[k] ||= [])
-      [OK_200, TEXT_PLAIN, '[' + fetch.map { |s| "{\"message\":\"\",\"event\":#{s.split("\r\n").last}}" }.join(',') + ']'].join
     end
   end
 
@@ -180,9 +128,8 @@ class SkankyRedis
       fetch = @db.keys
       [
           OK_200, TEXT_HTML,
-          '<html><body>',
-          "<a href='/staging-log/'>staging-log/</a>",
-          "<p>Indexes: #{fetch.size}</p>\n<ol>",
+          '<html><body style="color:green;font-size:40px;">',
+          "<p>Queues: #{fetch.size}</p>\n<ol>",
           fetch.sort.map { |k| "<li><a href='/#{k}'>#{k}</a> (size=#{@db.fetch(k, []).size})\n" },
           "</ol>\n</body></html>"
       ].join
@@ -235,8 +182,6 @@ class SkankyRedis
               when /^\S+\s+\/(\S+?)\/collect(\??\S*)\s+HTTP.*$/ # SKANKY_HP_SERVER magic url
                 # Need to clear these eventually
                 client_quit = http_collect($1 + $2, client, line)
-              when /^\S+\s+\/(\S+?)\/json(\??\S*)\s+HTTP.*$/ # SKANKY_HP_SERVER magic url
-                client_quit = http_json($1 + $2, client, line)
               when /^GET\s+\/\s+HTTP.*$/
                 client_quit = http_list
               when /^GET\s+\/(\S+)\s+HTTP.*$/
