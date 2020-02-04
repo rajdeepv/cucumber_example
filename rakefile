@@ -4,7 +4,8 @@ task :parallel do
     FileUtils.rm_rf('worker_log')
     FileUtils.mkdir_p 'worker_log'
     system(%Q(bundle exec parallel_cucumber \
---queue-connection-param #{redis_connection_string} -n 3 \
+--queue-connection-param #{redis_connection_string} -n 20 \
+--backup-worker-count 10
 --log-dir 'worker_log' -o'--format pretty' \
 -r after_batch.rb \
 --pre-batch-check 'ruby worker_precheck.rb' \

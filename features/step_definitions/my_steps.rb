@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given(/^I am test "([^"]*)"$/) do |test|
   puts "Step from test #{test}"
 end
@@ -10,5 +12,5 @@ And(/^I fail$/) do
   require 'redis'
   redis = Redis.new(url: ENV['REDIS'])
   redis.lpush("kill-worker-#{ENV['WORKER_INDEX']}", 'a')
-  fail('LOL')
+  raise('LOL')
 end

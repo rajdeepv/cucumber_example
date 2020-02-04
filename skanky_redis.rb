@@ -45,8 +45,8 @@ class SkankyRedis
   def start
     @server = TCPServer.new(0) # Default is normally 6379
     @port = @server.addr[1]
-    @server_url = "http://#{%x(hostname -f).chomp}:#{@port}" # rubocop:disable Lint/ShellLint
-    urls = %x(/sbin/ifconfig).each_line.map { |it| it.match(/inet (?:addr:)?(1[0|9]\S+)/) }.compact.map { |it| "http://#{it[1]}:#{@port}" } # rubocop:disable Lint/ShellLint
+    @server_url = "http://#{%x(hostname -f).chomp}:#{@port}"
+    urls = %x(/sbin/ifconfig).each_line.map { |it| it.match(/inet (?:addr:)?(1[0|9]\S+)/) }.compact.map { |it| "http://#{it[1]}:#{@port}" }
     server_info = "hacky redis server on #{@server_url} (#{urls}) log #{@flogf}"
     puts("Starting #{server_info}")
     Thread.start do
@@ -197,7 +197,6 @@ class SkankyRedis
     while client && (line = client.gets)
       line.chomp!
       array = nil
-      # rubocop:disable Style/PerlBackrefs
       if line =~ /^\*(\d+)$/
         array = []
         array_len = $1.to_i
