@@ -36,8 +36,7 @@ class SkankyRedis
     @port = @server.addr[1]
     @server_url = "http://#{%x(hostname -f).chomp}:#{@port}"
     urls = %x(/sbin/ifconfig).each_line.map { |it| it.match(/inet (?:addr:)?(1[0|9]\S+)/) }.compact.map { |it| "http://#{it[1]}:#{@port}" }
-    server_info = "hacky redis server on #{@server_url} (#{urls}) log #{@flogf}"
-    puts("Starting #{server_info}")
+    server_info = "hacky redis server on #{@server_url} (#{urls})"
     Thread.start do
       puts("Running #{server_info}")
       loop do

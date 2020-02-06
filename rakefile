@@ -9,6 +9,7 @@ task :parallel do
 --log-dir 'worker_log' -o'--format pretty' \
 -r after_batch.rb \
 --pre-batch-check 'ruby worker_precheck.rb' \
---directed-tests '{"0":"-t @w0","1":"-t @w1","2":"-t @w2"}'))
+#--directed-tests '{"0":"-t @w0","1":"-t @w1","2":"-t @w2"}')
+    )
   end
 end
