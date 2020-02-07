@@ -12,3 +12,13 @@ ParallelCucumber::DSL.after_batch do |results, batch_id, env, scenario_details|
     redis.rpush('skanky', scenario)
   end
 end
+
+ParallelCucumber::DSL.after_workers do
+  ports = ENV['APPIUM_PORTS'].split(', ')
+  ports.each do |port|
+    pid = `lsof -n -i :#{port}  | awk '/LISTEN/{print $2}'`.strip
+    puts "killing #{pid} of port #{port}"
+    Process.kill('TERM',pid.to_i)
+  end
+
+end

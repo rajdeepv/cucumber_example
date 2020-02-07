@@ -1,15 +1,36 @@
 require_relative 'skanky_redis'
+require 'json'
+
+def connected_devices
+  lines = `adb devices`.split("\n")
+  start_index = lines.index { |x| x =~ /List of devices attached/ } + 1
+  lines[start_index..-1].collect { |l| l.split("\t").first }
+end
+
+def env_vars
+  ENV['APPIUM_PORTS'] = "3000, 4000"
+  {
+      "ADB_DEVICE_ARG" => connected_devices,
+      "APPIUM_PORT" => ENV['APPIUM_PORTS'].split(', ')
+  }.to_json.gsub('"', '\\"')
+end
+
+
 task :parallel do
   with_redis do |redis_connection_string|
     FileUtils.rm_rf('worker_log')
     FileUtils.mkdir_p 'worker_log'
-    system(%Q(bundle exec parallel_cucumber \
---queue-connection-param #{redis_connection_string} -n 3 \
---backup-worker-count 3 \
---log-dir 'worker_log' -o'--format pretty' \
--r after_batch.rb \
---pre-batch-check 'ruby worker_precheck.rb' \
-#--directed-tests '{"0":"-t @w0","1":"-t @w1","2":"-t @w2"}')
-    )
+    cmd = %Q(bundle exec parallel_cucumber \
+          --queue-connection-param #{redis_connection_string} \
+          --backup-worker-count 3 \
+          --log-dir 'worker_log' -o'--format pretty' \
+          -r hooks.rb \
+          --pre-batch-check 'ruby worker_precheck.rb' \
+          --setup-worker 'ruby worker_setup.rb' \
+          --env-variables \"#{env_vars}\" \
+          #-n 3
+)
+    p cmd
+    system(cmd)
   end
 end

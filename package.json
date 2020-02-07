@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "appium": "v1.16.0"
+  }
+}
