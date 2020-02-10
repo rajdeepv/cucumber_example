@@ -1,0 +1,168 @@
+[35m[Appium][39m Welcome to Appium v1.16.0
+[35m[Appium][39m Non-default server args:
+[35m[Appium][39m   port: 3000
+[35m[Appium][39m Appium REST http interface listener started on 0.0.0.0:3000
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session[39m
+[35m[HTTP][39m [90m{"desiredCapabilities":{"app":"/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk","platformName":"Android","deviceName":"emulator-5554","udid":"emulator-5554","appActivity":"rajdeep.varma.com.myapplication.MainActivity","appPackage":"rajdeep.varma.com.myapplication","appWaitActivity":"*","automationName":"espresso","skipServerInstallation":true,"newCommandTimeout":0,"systemPort":"57119","autoGrantPermissions":true,"skipUnlock":true,"fullReset":false,"tmpDir":"/var/folders/b4/_133qmmj5k10nsh07rlw4sxw0000gn/T/appium_temp/0"},"capabilities":{"firstMatch":[{"appium:app":"/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk","platformName":"Android","appium:deviceName":"emulator-5554","appium:udid":"emulator-5554","appium:appActivity":"rajdeep.varma.com.myapplication.MainActivity","appium:appPackage":"rajdeep.varma.com.myapplication","appium:appWaitActivity":"*","appium:automationName":"espr[39m
+[debug] [35m[W3C][39m Calling AppiumDriver.createSession() with args: [{"app":"/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk","platformName":"Android","deviceName":"emulator-5554","udid":"emulator-5554","appActivity":"rajdeep.varma.com.myapplication.MainActivity","appPackage":"rajdeep.varma.com.myapplication","appWaitActivity":"*","automationName":"espresso","skipServerInstallation":true,"newCommandTimeout":0,"systemPort":"57119","autoGrantPermissions":true,"skipUnlock":true,"fullReset":false,"tmpDir":"/var/folders/b4/_133qmmj5k10nsh07rlw4sxw0000gn/T/appium_temp/0"},null,{"firstMatch":[{"appium:app":"/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk","platformName":"Android","appium:deviceName":"emulator-5554","appium:udid":"emulator-5554","appium:appActivity":"rajdeep.varma.com.myapplication.MainActivity","appium:appPackage":"rajdeep.varma.com.myapplication","appium:appWaitActivity":"*","appium:automationName":"espresso","appium:skipServerInstallation":true,"appium:ne...
+[debug] [35m[BaseDriver][39m Event 'newSessionRequested' logged at 1581366381869 (20:26:21 GMT+0000 (GMT))
+[35m[Appium][39m The following capabilities were provided in the JSONWP desired capabilities that are missing in W3C capabilities: ["systemPort"]
+[35m[Appium][39m Trying to fix W3C capabilities by merging them with JSONWP caps
+[35m[BaseDriver][39m The capabilities ["systemPort","app","deviceName","udid","appActivity","appPackage","appWaitActivity","automationName","skipServerInstallation","newCommandTimeout","system_port","autoGrantPermissions","skipUnlock","fullReset","tmpDir"] are not standard capabilities and should have an extension prefix
+[35m[Appium][39m Appium v1.16.0 creating new EspressoDriver (v1.20.0) session
+[debug] [35m[BaseDriver][39m W3C capabilities and MJSONWP desired capabilities were provided
+[debug] [35m[BaseDriver][39m Creating session with W3C capabilities: {
+[debug] [35m[BaseDriver][39m   "alwaysMatch": {
+[debug] [35m[BaseDriver][39m     "appium:systemPort": "57119",
+[debug] [35m[BaseDriver][39m     "platformName": "Android",
+[debug] [35m[BaseDriver][39m     "appium:app": "/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk",
+[debug] [35m[BaseDriver][39m     "appium:deviceName": "emulator-5554",
+[debug] [35m[BaseDriver][39m     "appium:udid": "emulator-5554",
+[debug] [35m[BaseDriver][39m     "appium:appActivity": "rajdeep.varma.com.myapplication.MainActivity",
+[debug] [35m[BaseDriver][39m     "appium:appPackage": "rajdeep.varma.com.myapplication",
+[debug] [35m[BaseDriver][39m     "appium:appWaitActivity": "*",
+[debug] [35m[BaseDriver][39m     "appium:automationName": "espresso",
+[debug] [35m[BaseDriver][39m     "appium:skipServerInstallation": true,
+[debug] [35m[BaseDriver][39m     "appium:newCommandTimeout": 0,
+[debug] [35m[BaseDriver][39m     "appium:system_port": "57119",
+[debug] [35m[BaseDriver][39m     "appium:autoGrantPermissions": true,
+[debug] [35m[BaseDriver][39m     "appium:skipUnlock": true,
+[debug] [35m[BaseDriver][39m     "appium:fullReset": false,
+[debug] [35m[BaseDriver][39m     "appium:tmpDir": "/var/folders/b4/_133qmmj5k10nsh07rlw4sxw0000gn/T/appium_temp/0"
+[debug] [35m[BaseDriver][39m   },
+[debug] [35m[BaseDriver][39m   "firstMatch": [
+[debug] [35m[BaseDriver][39m     {}
+[debug] [35m[BaseDriver][39m   ]
+[debug] [35m[BaseDriver][39m }
+[35m[BaseDriver][39m The following capabilities were provided, but are not recognized by Appium:
+[35m[BaseDriver][39m   systemPort
+[35m[BaseDriver][39m   system_port
+[35m[BaseDriver][39m   tmpDir
+[35m[BaseDriver][39m Session created with session id: 582690ce-9368-4798-b2df-86f9100a086a
+[35m[BaseDriver][39m Using local app '/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk'
+[debug] [35m[Espresso][39m Checking whether app is actually present
+[35m[Espresso][39m EspressoDriver version: 1.20.0
+[35m[ADB][39m Found 6 'build-tools' folders under '/Users/rajdeepvarma/Library/Android/sdk' (newest first):
+[35m[ADB][39m     /Users/rajdeepvarma/Library/Android/sdk/build-tools/29.0.2
+[35m[ADB][39m     /Users/rajdeepvarma/Library/Android/sdk/build-tools/28.0.3
+[35m[ADB][39m     /Users/rajdeepvarma/Library/Android/sdk/build-tools/28.0.0
+[35m[ADB][39m     /Users/rajdeepvarma/Library/Android/sdk/build-tools/28.0.0-rc2
+[35m[ADB][39m     /Users/rajdeepvarma/Library/Android/sdk/build-tools/27.0.3
+[35m[ADB][39m     /Users/rajdeepvarma/Library/Android/sdk/build-tools/26.0.2
+[35m[ADB][39m Using 'adb' from '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb'
+[35m[AndroidDriver][39m Retrieving device list
+[debug] [35m[ADB][39m Trying to find a connected android device
+[debug] [35m[ADB][39m Getting connected devices...
+[debug] [35m[ADB][39m Connected devices: [{"udid":"emulator-5554","state":"device"},{"udid":"emulator-5558","state":"device"}]
+[35m[AndroidDriver][39m Using device: emulator-5554
+[35m[ADB][39m Using 'adb' from '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb'
+[debug] [35m[ADB][39m Setting device id to emulator-5554
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell getprop ro.build.version.sdk'
+[debug] [35m[ADB][39m Current device property 'ro.build.version.sdk': 28
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell getprop ro.build.version.release'
+[debug] [35m[ADB][39m Current device property 'ro.build.version.release': 9
+[debug] [35m[ADB][39m Device API level: 28
+[35m[Espresso][39m Relaxing hidden api policy
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell settings put global hidden_api_policy_pre_p_apps 1'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell settings put global hidden_api_policy_p_apps 1'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell settings put global hidden_api_policy 1'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 wait-for-device'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell echo ping'
+[debug] [35m[AndroidDriver][39m Pushing settings apk to device...
+[debug] [35m[ADB][39m Getting install status for io.appium.settings
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package io.appium.settings'
+[debug] [35m[ADB][39m 'io.appium.settings' is installed
+[debug] [35m[ADB][39m Getting package info for 'io.appium.settings'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package io.appium.settings'
+[debug] [35m[ADB][39m The version name of the installed 'io.appium.settings' is greater or equal to the application version name ('3.0.0' >= '3.0.0')
+[debug] [35m[ADB][39m There is no need to install/upgrade '/Users/rajdeepvarma/projects/cucumber_example/node_modules/appium/node_modules/appium-espresso-driver/node_modules/io.appium.settings/apks/settings_apk-debug.apk'
+[debug] [35m[ADB][39m Getting IDs of all 'io.appium.settings' processes
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell 'pgrep --help; echo $?''
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell pgrep -f io\\.appium\\.settings'
+[debug] [35m[AndroidDriver][39m io.appium.settings is already running. There is no need to reset its permissions.
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell appops set io.appium.settings android\:mock_location allow'
+[debug] [35m[Logcat][39m Starting logcat capture
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell settings get global animator_duration_scale'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell settings get global transition_animation_scale'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell settings get global window_animation_scale'
+[debug] [35m[Espresso][39m Forwarding Espresso Server port 6791 to 57119
+[debug] [35m[ADB][39m Forwarding system: 57119 to device: 6791
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 forward tcp\:57119 tcp\:6791'
+[debug] [35m[Espresso][39m 'skipUnlock' capability set, so skipping device unlock
+[debug] [35m[ADB][39m Checking app cert for /Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk
+[35m[ADB][39m Using 'apksigner' from '/Users/rajdeepvarma/Library/Android/sdk/build-tools/29.0.2/apksigner'
+[debug] [35m[ADB][39m Starting '/Users/rajdeepvarma/Library/Android/sdk/build-tools/29.0.2/apksigner' with args '["verify","--print-certs","/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk"]'
+[debug] [35m[ADB][39m apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
+[debug] [35m[ADB][39m Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
+[debug] [35m[ADB][39m Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
+[debug] [35m[ADB][39m Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
+[debug] [35m[ADB][39m 
+[debug] [35m[ADB][39m '/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk' is already signed.
+[debug] [35m[ADB][39m Getting install status for rajdeep.varma.com.myapplication
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package rajdeep.varma.com.myapplication'
+[debug] [35m[ADB][39m 'rajdeep.varma.com.myapplication' is installed
+[debug] [35m[ADB][39m Getting package info for 'rajdeep.varma.com.myapplication'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package rajdeep.varma.com.myapplication'
+[debug] [35m[ADB][39m The version name of the installed 'rajdeep.varma.com.myapplication' is greater or equal to the application version name ('1.0.0' >= '1.0.0')
+[debug] [35m[ADB][39m There is no need to install/upgrade '/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk'
+[35m[AndroidDriver][39m Performing fast reset on 'rajdeep.varma.com.myapplication'
+[debug] [35m[ADB][39m Getting install status for rajdeep.varma.com.myapplication
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package rajdeep.varma.com.myapplication'
+[debug] [35m[ADB][39m 'rajdeep.varma.com.myapplication' is installed
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am force-stop rajdeep.varma.com.myapplication'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell pm clear rajdeep.varma.com.myapplication'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package rajdeep.varma.com.myapplication'
+[debug] [35m[ADB][39m Retrieving requested permissions
+[debug] [35m[ADB][39m Retrieved 1 permission(s) from ["requested"] group(s)
+[debug] [35m[ADB][39m Retrieving granted permissions
+[debug] [35m[ADB][39m Retrieved 1 permission(s) from ["install","runtime"] group(s)
+[35m[ADB][39m rajdeep.varma.com.myapplication contains no permissions available for granting
+[debug] [35m[AndroidDriver][39m Performed fast reset on the installed 'rajdeep.varma.com.myapplication' application (stop and clear)
+[debug] [35m[Espresso][39m skipServerInstallation capability is set. Not installig espresso-server 
+[debug] [35m[Espresso][39m Performing cleanup of automation leftovers
+[debug] [35m[Espresso][39m No obsolete sessions have been detected (Error: socket hang up)
+[35m[Espresso][39m Starting Espresso Server v1.20.0 with cmd: adb shell am instrument -w -e debug false io.appium.espressoserver.test/androidx.test.runner.AndroidJUnitRunner
+[debug] [35m[ADB][39m Creating ADB subprocess with args: ["-P",5037,"-s","emulator-5554","shell","am","instrument","-w","-e","debug","false","io.appium.espressoserver.test/androidx.test.runner.AndroidJUnitRunner"]
+[debug] [35m[Espresso][39m [Instrumentation] [STDOUT]
+[35m[Espresso][39m Waiting for Espresso to be online...
+[debug] [35m[WD Proxy][39m Matched '/status' to command name 'getStatus'
+[debug] [35m[WD Proxy][39m Proxying [GET /status] to [GET http://localhost:57119/status] with no body
+[debug] [35m[WD Proxy][39m Got response with status 500: {"id":"1b1b4710-bcf9-4587-9a75-b73308647fea","sessionId":null,"value":{"error":"unknown error","message":"kotlin.KotlinNullPointerException","stacktrace":"kotlin.KotlinNullPointerException\n\tat io.appium.espressoserver.lib.http.Server.serve(Server.kt:49)\n\tat fi.iki.elonen.NanoHTTPD$HTTPSession.execute(NanoHTTPD.java:945)\n\tat fi.iki.elonen.NanoHTTPD$ClientHandler.run(NanoHTTPD.java:192)\n\tat java.lang.Thread.run(Thread.java:764)\n"}}
+[debug] [35m[W3C][39m Matched W3C error code 'unknown error' to UnknownError
+[debug] [35m[WD Proxy][39m Matched '/status' to command name 'getStatus'
+[debug] [35m[WD Proxy][39m Proxying [GET /status] to [GET http://localhost:57119/status] with no body
+[debug] [35m[WD Proxy][39m Got response with status 200: {"id":"6e85f640-5da3-487e-b0c5-b84ef66cfe92","sessionId":null,"value":null}
+[debug] [35m[WD Proxy][39m Matched '/session' to command name 'createSession'
+[debug] [35m[WD Proxy][39m Proxying [POST /session] to [POST http://localhost:57119/session] with body: {"capabilities":{"firstMatch":[{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"Android","systemPort":"57119","app":"/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk","deviceName":"emulator-5554","udid":"emulator-5554","appActivity":"rajdeep.varma.com.myapplication.MainActivity","appPackage":"rajdeep.varma.com.myapplication","appWaitActivity":"*","automationName":"espresso","skipServerInstallation":true,"newCommandTimeout":0,"system_port":"57119","autoGrantPermissions":true,"skipUnlock":true,"fullReset":false,"tmpDir":"/var/folders/b4/_133qmmj5k10nsh07rlw4sxw0000gn/T/appium_temp/0"},"platformName":"Android","systemPort":"57119","app":"/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk","deviceName":"emulator-5554","udid":"emulator-555...
+[debug] [35m[WD Proxy][39m Got response with status 200: {"id":"00878271-7abc-4874-b336-f9320906d6fd","sessionId":"b51d021b-2ff3-415f-a2b6-0d8ee41379d6","value":{"capabilities":{"alwaysMatch":{},"firstMatch":[{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"Android","systemPort":"57119","app":"/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk","deviceName":"emulator-5554","udid":"emulator-5554","appActivity":"rajdeep.varma.com.myapplication.MainActivity","appPackage":"rajdeep.varma.com.myapplication","appWaitActivity":"*","automationName":"espresso","skipServerInstallation":true,"newCommandTimeout":0,"system_port":"57119","autoGrantPermissions":true,"skipUnlock":true,"fullReset":false,"tmpDir":"/var/folders/b4/_133qmmj5k10nsh07rlw4sxw0000gn/T/appium_temp/0"},"platformName":"Android","systemPort":"57119","app":"/Users/rajdeepvarma/projects/cu...
+[35m[WD Proxy][39m Determined the downstream protocol as 'W3C'
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell 'echo "rajdeep.varma.com.myapplication" > "/data/local/tmp/espresso.apppackage"''
+[35m[Espresso][39m Recorded the target application package 'rajdeep.varma.com.myapplication' to /data/local/tmp/espresso.apppackage
+[debug] [35m[ADB][39m Waiting up to 20000ms for activity matching pkg: 'rajdeep.varma.com.myapplication' and activity: '*' to be focused
+[debug] [35m[ADB][39m Possible activities, to be checked: '*', 'rajdeep.varma.com.myapplication.*'
+[debug] [35m[ADB][39m Getting focused package and activity
+[debug] [35m[ADB][39m Running '/Users/rajdeepvarma/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys window windows'
+[debug] [35m[ADB][39m Found package: 'rajdeep.varma.com.myapplication' and fully qualified activity name : 'rajdeep.varma.com.myapplication.MainActivity'
+[debug] [35m[WD Proxy][39m Proxying [GET /appium/device/info] to [GET http://localhost:57119/session/b51d021b-2ff3-415f-a2b6-0d8ee41379d6/appium/device/info] with no body
+[debug] [35m[WD Proxy][39m Got response with status 200: {"id":"414ad103-b630-4197-ac11-f865da33024c","sessionId":"b51d021b-2ff3-415f-a2b6-0d8ee41379d6","value":{"realDisplaySize":"540x1060","apiVersion":"28","carrierName":"Android","platformVersion":"9","timeZone":"Europe/London","model":"Android SDK built for x86_64","locale":"en_US","brand":"google","androidId":"93d2802a58be37c3","manufacturer":"Google","displayDensity":240}}
+[35m[Appium][39m New EspressoDriver session created successfully, session 582690ce-9368-4798-b2df-86f9100a086a added to master session list
+[debug] [35m[BaseDriver][39m Event 'newSessionStarted' logged at 1581366390550 (20:26:30 GMT+0000 (GMT))
+[debug] [35m[W3C (582690ce)][39m Cached the protocol value 'W3C' for the new session 582690ce-9368-4798-b2df-86f9100a086a
+[debug] [35m[W3C (582690ce)][39m Responding to client with driver.createSession() result: {"capabilities":{"platformName":"Android","systemPort":"57119","app":"/Users/rajdeepvarma/projects/cucumber_example/MyApplication/app/build/outputs/apk/debug/app-debug.apk","deviceName":"emulator-5554","udid":"emulator-5554","appActivity":"rajdeep.varma.com.myapplication.MainActivity","appPackage":"rajdeep.varma.com.myapplication","appWaitActivity":"*","automationName":"espresso","skipServerInstallation":true,"newCommandTimeout":0,"system_port":"57119","autoGrantPermissions":true,"skipUnlock":true,"fullReset":false,"tmpDir":"/var/folders/b4/_133qmmj5k10nsh07rlw4sxw0000gn/T/appium_temp/0"}}
+[35m[HTTP][39m [37m<-- POST /wd/hub/session [39m[32m200[39m [90m8692 ms - 657[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/582690ce-9368-4798-b2df-86f9100a086a/timeouts[39m
+[35m[HTTP][39m [90m{"implicit":0}[39m
+[debug] [35m[W3C (582690ce)][39m Calling AppiumDriver.timeouts() with args: [null,null,null,null,0,"582690ce-9368-4798-b2df-86f9100a086a"]
+[debug] [35m[BaseDriver][39m W3C timeout argument: {"implicit":0}}
+[debug] [35m[BaseDriver][39m Set implicit wait to 0ms
+[debug] [35m[W3C (582690ce)][39m Responding to client with driver.timeouts() result: null
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/582690ce-9368-4798-b2df-86f9100a086a/timeouts [39m[32m200[39m [90m9 ms - 14[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/status[39m
+[35m[HTTP][39m [90m{}[39m
+[debug] [35m[GENERIC][39m Calling AppiumDriver.getStatus() with args: []
+[debug] [35m[GENERIC][39m Responding to client with driver.getStatus() result: {"build":{"version":"1.16.0"}}
+[35m[HTTP][39m [37m<-- GET /wd/hub/status [39m[32m200[39m [90m3 ms - 68[39m
+[35m[HTTP][39m [90m[39m
+[35m[Appium][39m Received SIGTERM - shutting down

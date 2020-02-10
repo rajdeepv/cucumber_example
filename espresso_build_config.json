@@ -1,0 +1,6 @@
+{
+  "additionalAppDependencies": [
+    "com.google.android.material:material:1.0.0",
+    "androidx.lifecycle:lifecycle-extensions:2.1.0"
+  ]
+}

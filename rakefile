@@ -8,10 +8,13 @@ def connected_devices
 end
 
 def env_vars
-  ENV['APPIUM_PORTS'] = "3000, 4000"
+  appium_ports = []
+  connected_devices.each_with_index {|d, i| appium_ports << (3000 + i)}
+  ENV['APPIUM_PORTS'] = appium_ports.join(',')
+  puts "Appium ports #{appium_ports}"
   {
       "ADB_DEVICE_ARG" => connected_devices,
-      "APPIUM_PORT" => ENV['APPIUM_PORTS'].split(', ')
+      "APPIUM_PORT" => appium_ports
   }.to_json.gsub('"', '\\"')
 end
 
@@ -28,7 +31,6 @@ task :parallel do
           --pre-batch-check 'ruby worker_precheck.rb' \
           --setup-worker 'ruby worker_setup.rb' \
           --env-variables \"#{env_vars}\" \
-          #-n 3
 )
     p cmd
     system(cmd)
