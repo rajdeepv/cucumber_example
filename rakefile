@@ -27,7 +27,7 @@ task :parallel do
           --queue-connection-param #{redis_connection_string} \
           --backup-worker-count 3 \
           --log-dir 'worker_log' -o'--format pretty' \
-          -r hooks.rb \
+          -r batch_hooks.rb \
           --pre-batch-check 'ruby worker_precheck.rb' \
           --setup-worker 'ruby worker_setup.rb' \
           --env-variables \"#{env_vars}\" \

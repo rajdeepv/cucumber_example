@@ -1,8 +1,12 @@
 Feature: Distribution
 
-  Scenario: A
-    Given I start the app
+  Scenario: Spiderman
+    Given I am "Spiderman"
 
 
-  Scenario: B
-    Given I start the app
+  Scenario: Hulk
+    Given I am "Hulk"
+
+
+  Scenario: Shaktimaan
+    Given I am "Nagraj"
