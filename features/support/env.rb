@@ -1,7 +1,7 @@
 require 'appium_lib'
 require 'appium_lib/driver'
 
-APP_PATH = 'MyApplication/app/build/outputs/apk/debug/app-debug.apk'
+APP_PATH = 'app-debug.apk'
 APP_PACKAGE = 'rajdeep.varma.com.myapplication'
 APP_MAIN_ACTIVITY = ''
 ESPRESSO_SERVER_PATH = 'io.appium.espressoserver.test_1.20.0_rajdeep.varma.com.myapplication_emulator-5554.apk'
