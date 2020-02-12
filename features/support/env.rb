@@ -61,8 +61,8 @@ def default_caps
           },
   }
 
-  puts("USING SERVER = #{opts[:appium_lib][:server_url]}")
-  puts("USING DEVICE = #{opts[:caps][:deviceName]}")
-  puts("USING PORT = #{opts[:caps][:system_port]}")
+  # puts("USING SERVER = #{opts[:appium_lib][:server_url]}")
+  # puts("USING DEVICE = #{opts[:caps][:deviceName]}")
+  # puts("USING PORT = #{opts[:caps][:system_port]}")
   opts
 end

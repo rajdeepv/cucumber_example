@@ -14,7 +14,7 @@ ParallelCucumber::DSL.after_batch do |results, batch_id, env, scenario_details|
     end
     puts "=#=#=#=#=#=#=#=# Requeue #{scenario}, Reason: #{details[scenario]['exception_class']} =#=#=#=#=#=#=#=#"
     redis.lpush("kill-worker-#{ENV['WORKER_INDEX']}","Killed in After Batch")
-    puts "=#=#=#=#=#=#=#=# Kill #{scenario}, } =#=#=#=#=#=#=#=#"
+    puts "=#=#=#=#=#=#=#=# Kill #{ENV['WORKER_INDEX']}, } =#=#=#=#=#=#=#=#"
     redis.lpush('rerun', scenario)
     redis.rpush('skanky', scenario)
   end

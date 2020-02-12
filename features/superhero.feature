@@ -8,5 +8,5 @@ Feature: Superheroes
     Given I am "Hulk"
 
 
-  Scenario: Shaktimaan
+  Scenario: Nagraj
     Given I am "Nagraj"

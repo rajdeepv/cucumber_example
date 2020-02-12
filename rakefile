@@ -33,7 +33,7 @@ task :parallel do
           --setup-worker 'ruby worker_setup.rb' \
           --env-variables \"#{env_vars}\" \
 )
-    p cmd
+    # p cmd
     system(cmd)
   end
 end
