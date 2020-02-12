@@ -20,6 +20,6 @@ ParallelCucumber::DSL.after_batch do |results, batch_id, env, scenario_details|
   end
 end
 
-ParallelCucumber::DSL.after_workers do
-  `killall -9 node`
-end
+#ParallelCucumber::DSL.after_workers do
+#  `killall -9 node`
+#end

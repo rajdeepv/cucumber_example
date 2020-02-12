@@ -1,4 +1,4 @@
-Feature: Distribution
+Feature: Superheroes
 
   Scenario: Spiderman
     Given I am "Spiderman"
