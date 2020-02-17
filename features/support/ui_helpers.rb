@@ -5,12 +5,13 @@ class BusinessError < Exception
 end
 
 def some_more_things
-  5.times do
-    editor
+  5.times do |index|
+    add_note("#{index}\n")
     sleep 1
   end
+  add_note("PASS!\n")
 end
 
-def editor
-  @driver.find_element(id: 'input')
+def add_note(note)
+  @driver.find_element(id: 'input').send_keys("#{note}\n")
 end

@@ -1,14 +1,13 @@
 And(/^I am "([^"]*)"$/) do |name|
-  editor.send_keys(name)
+  add_note(name)
+  sleep 2
 
   if name == 'Nagraj'
+    add_note("must Fail for genuine reason")
     sleep 2
-    editor.send_keys("\nmust Fail for genuine reason")
-    sleep 2
-    raise(BusinessError, 'Bad Luk Nagraj') if name == 'Nagraj'
+    raise(BusinessError, 'Bad Luk Nagraj')
   else
-    sleep 2
-    editor.send_keys("\nmust PASS if all good")
+    add_note("must PASS if all good")
   end
 
   some_more_things

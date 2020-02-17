@@ -2,7 +2,7 @@ require 'parallel_cucumber/dsl'
 require 'json'
 
 ParallelCucumber::DSL.after_batch do |results, batch_id, env|
-  not_passed_scenarios = results.reject {|_key, val| val == :passed}.keys.map(&:to_s)
+  not_passed_scenarios = results.reject {|_key, val| val[:status] == :passed}.keys.map(&:to_s)
   not_passed_scenarios.each do |scenario|
 
     next if ran_twice?(scenario)
