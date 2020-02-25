@@ -1,29 +1,17 @@
 require 'socket'
 
-class SkankyRedis
+class RedisServer
   def initialize
     @db = {}
     @pops = {}
     @db_mutex = Mutex.new
     @server = nil
     @stopping = false
-    @flogf = File.absolute_path('skanky_redis.log')
-    begin
-      File.write(@flogf, "#{Time.now} server started\n")
-    rescue StandardError => e
-      warn("Unexpectedly, #{@flogf} creation caused #{e}")
-    end
   end
 
   def stop
     @stopping = true
     @server&.close
-    if File.file?(@flogf)
-      File.write(@flogf, "#{Time.now} server terminated, dumping...\n", mode: 'a')
-      @db.sort.each do |k, v|
-        File.write(@flogf, "#{Time.now} #{k} : #{v.respond_to?(:length) && v.length} : #{v.inspect}\n", mode: 'a')
-      end
-    end
     @server = nil
   end
 
@@ -50,7 +38,7 @@ class SkankyRedis
     rescue StandardError
       raise unless @stopping
     end
-    "redis://127.0.0.1:#{@port},skanky"
+    "redis://127.0.0.1:#{@port},tests"
   end
 
   def lpush(k, vv)
@@ -72,10 +60,6 @@ class SkankyRedis
       l = @db.fetch(k, [])
       p = (@pops[k] ||= []).push(Time.now)
       c = p.count
-      if File.file?(@flogf)
-        File.write(@flogf, "Time remaining obtained tests_per_second_all tps_last_100 tps_last_10\n", mode: 'a') if c == 1
-        File.write(@flogf, "#{p.last} #{l.count} #{c} #{rate(k, c)} #{rate(k, 100)} #{rate(k, 10)}\n", mode: 'a')
-      end
       l.empty? ? '$-1' : l.shift
     end
   end
@@ -178,9 +162,6 @@ class SkankyRedis
                 get($1)
               when /^quit/
                 client_quit = "client quit - byebye\n"
-              when /^\S+\s+\/(\S+?)\/collect(\??\S*)\s+HTTP.*$/ # SKANKY_HP_SERVER magic url
-                # Need to clear these eventually
-                client_quit = http_collect($1 + $2, client, line)
               when /^GET\s+\/\s+HTTP.*$/
                 client_quit = http_list
               when /^GET\s+\/(\S+)\s+HTTP.*$/
@@ -206,8 +187,8 @@ class SkankyRedis
   end
 end
 
-def with_redis(connection = nil)
-  our_redis = connection && !connection.empty? ? nil : SkankyRedis.new
+def with_redis
+  our_redis = RedisServer.new
   if our_redis
     # e.g.     "redis://127.0.0.1:#{@port},skanky"
     address = our_redis.start

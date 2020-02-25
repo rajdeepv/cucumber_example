@@ -28,7 +28,7 @@ end
 def requeue(scenario)
   puts "=#=#=#=#=#=#=#=# Requeue #{scenario} =#=#=#=#=#=#=#=#"
   redis.lpush('rerun', scenario)
-  redis.rpush('skanky', scenario)
+  redis.rpush('tests', scenario)
 end
 
 def mark_worker_as_sick(worker_index)

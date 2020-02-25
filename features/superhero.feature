@@ -1,12 +1,12 @@
 Feature: Superheroes
 
   Scenario: Spiderman
-    Given I am "Spiderman"
+    Given I am "SPIDERMAN"
 
 
   Scenario: Hulk
-    Given I am "Hulk"
+    Given I am "HULK"
 
 
-  Scenario: Nagraj
-    Given I am "Nagraj"
+  Scenario: Batman
+    Given I am "BATMAN"

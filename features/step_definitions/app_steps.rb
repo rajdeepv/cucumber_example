@@ -1,13 +1,11 @@
 And(/^I am "([^"]*)"$/) do |name|
   add_note(name)
-  sleep 2
 
-  if name == 'Nagraj'
-    add_note("must Fail for genuine reason")
-    sleep 2
-    raise(BusinessError, 'Bad Luk Nagraj')
+  if name == 'BATMAN'
+    add_note('Genuine Failure')
+    raise(BusinessError, 'Bad Luk Batman')
   else
-    add_note("must PASS if all good")
+    add_note('Must Pass')
   end
 
   some_more_things

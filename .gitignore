@@ -1,5 +1,4 @@
 .idea
-skanky_redis.log
 worker_log
 node_modules
 *appium_log.txt

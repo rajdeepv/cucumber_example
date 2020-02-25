@@ -1,4 +1,4 @@
-require_relative 'skanky_redis'
+require_relative 'redis_server'
 require 'json'
 
 def connected_devices
