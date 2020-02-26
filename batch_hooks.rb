@@ -5,7 +5,6 @@ require 'json'
 ParallelCucumber::DSL.after_batch do |outcome, _batch_id, env|
   scenario, result = outcome.first
   next if result[:status] == :passed
-  next if ran_twice?(scenario)
   next if failed_with_business_reason?(result)
 
   mark_worker_as_sick(env['WORKER_INDEX'])
