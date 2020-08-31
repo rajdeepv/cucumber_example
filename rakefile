@@ -17,7 +17,7 @@ def env_vars
   }.to_json.gsub('"', '\\"')
 end
 
-
+desc 'Run Android tests in parallel'
 task :parallel do
   `killall -9 node`
   with_redis do |redis_connection_string|

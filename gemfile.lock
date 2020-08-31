@@ -1,7 +1,7 @@
 PATH
   remote: /Users/rajdeepvarma/projects/parallel_cucumber
   specs:
-    parallel_cucumber (0.2.19)
+    parallel_cucumber (0.2.20)
       cucumber (~> 2)
       parallel (~> 1.12)
       redis (~> 4.0)
@@ -70,4 +70,4 @@ DEPENDENCIES
   rake
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

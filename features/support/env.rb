@@ -1,6 +1,7 @@
 require 'appium_lib'
 require 'appium_lib/driver'
 
+ESPRESSO_PKG = 'io.appium.espressoserver.test'
 APP_PATH = 'app-debug.apk'
 APP_PACKAGE = 'rajdeep.varma.com.myapplication'
 APP_MAIN_ACTIVITY = ''
@@ -15,10 +16,17 @@ end
 
 
 def install_apps
-  `#{adb_command} uninstall io.appium.espressoserver.test`
-  `#{adb_command} uninstall #{APP_PACKAGE}`
+  `#{adb_command} uninstall #{ESPRESSO_PKG}` if app_installed?(ESPRESSO_PKG)
+  `#{adb_command} uninstall #{APP_PACKAGE}` if app_installed?(APP_PACKAGE)
   `#{adb_command} install #{APP_PATH}`
   `#{adb_command} install #{ESPRESSO_SERVER_PATH}`
+end
+
+def app_installed?(package_name)
+  matching_packages = `#{adb_command} shell pm list packages | grep #{package_name}`.split
+  res = matching_packages.include?("package:#{package_name}")
+  puts "app_installed = #{res}"
+  res
 end
 
 def adb_command
