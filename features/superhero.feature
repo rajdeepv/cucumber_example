@@ -1,7 +1,7 @@
 Feature: Superheroes
 
   Scenario: Spiderman
-    Given I am "SPIDERMAN"
+    Given I am "Shaktiman"
 
 
   Scenario: Hulk
